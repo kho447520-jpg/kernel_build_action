@@ -8,26 +8,15 @@ jobs:
       - name: Build Kernel
         uses: dabao1955/kernel_build_action@v1.10.4
         with:
-          # 1. Nguồn kernel và nhánh
           kernel-url: https://github.com/kho447520-jpg/android_kernel_samsung_exynos7885
           kernel-branch: EurekaV3
-          
-          # 2. SỬA LỖI TẠI ĐÂY: Chỉ định thư mục gốc chứa mã nguồn để tránh bị lặp đường dẫn (kernel/kernel/...)
-          kernel-dir: .
-          
-          # 3. File cấu hình (defconfig)
-          config: exynos7885-a10_defconfig
-          
-          # 4. Cấu hình Toolchain (Clang + GCC cho kernel 4.4)
+          kernel-dir: 
+          config: a10.config
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
           android-version: 12
           aosp-clang-version: r383902
-          
-          # 5. Tích hợp KernelSU Next v3.4.2
           ksu: true
           ksu-version: v3.4.2
-          
-          # 6. Đóng gói thành file flash AnyKernel3
           anykernel3: true
