@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Kernel
-        uses: dabao1955/kernel_build_action@v1.2
+        uses: dabao1955/kernel_build_action@v1.10.4
         with:
           kernel-url: https://github.com/kho447520-jpg/android_kernel_samsung_exynos7885
           kernel-branch: EurekaV3
