@@ -1,27 +1,21 @@
-name: Build kernel a10s ok
-
-on:
-  workflow_dispatch:
-
-permissions:
-  contents: write
+name: Build EurekaV3 Kernel
+on: workflow_dispatch
 
 jobs:
   build-kernel:
-    name: Build Kernel
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Build
-        uses: dabao1955/kernel_build_action@main
+      - name: Build Kernel
+        uses: dabao1955/kernel_build_action@v1
         with:
-          kernel-url: https://github.com/hiratazx/android_kernel_samsung_seraphine
-          kernel-branch: main
-          config: itzkaguya-perf_defconfig
+          kernel-url: https://github.com/kho447520-jpg/android_kernel_samsung_exynos7885
+          kernel-branch: EurekaV3
+          config: exynos7885-a10_defconfig
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
-          android-version: 10
+          android-version: 12
           aosp-clang-version: r383902
+          ksu: true
+          ksu-version: v3.4.2  # KernelSU Next v3.4.2, lý thuyết hỗ trợ 4.4
           anykernel3: true
-          release: true
-          access-token: ${{ secrets.GITHUB_TOKEN }}
